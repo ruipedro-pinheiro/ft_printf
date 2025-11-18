@@ -6,7 +6,7 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:15:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 11:12:22 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:23:29 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int	main(void)
 
 	name = "pedro";
 	greetings = '~';
-	ft_printf("%c Salut %s = %p !\n", greetings, name, &name);
-	printf("%c Salut %s = %p !\n", greetings, name, &name);
+	ft_printf("ft_printf: %c Salut %s = %p !\n", greetings, name, &name);
+	printf("  printf : %c Salut %s = %p !\n", greetings, name, &name);
 }
