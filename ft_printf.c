@@ -6,14 +6,16 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:15:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 13:23:29 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:33:14 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <stdarg.h>
-#include <stdio.h>
+#include "ft_printf.h"
 
+/* TODO: FOUND A MAJOR BUG
+	IF THERE ARE TWO OR MORE ARGS IN PRINTF FOLLOWING EACH OTHER WITHOUT SPACE
+		IT DOESNT WORK LIKE IN PRINTF
+*/
 int	var_handler(const char *s, int size, va_list varg)
 {
 	if (s[size + 1] == 'c')
@@ -52,15 +54,4 @@ int	ft_printf(const char *s, ...)
 		size++;
 	}
 	return (size);
-}
-
-int	main(void)
-{
-	char	*name;
-	char	greetings;
-
-	name = "pedro";
-	greetings = '~';
-	ft_printf("ft_printf: %c Salut %s = %p !\n", greetings, name, &name);
-	printf("  printf : %c Salut %s = %p !\n", greetings, name, &name);
 }

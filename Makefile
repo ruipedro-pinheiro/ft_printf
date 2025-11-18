@@ -1,11 +1,11 @@
-NAME = ft_printf
+NAME = libftprintf.a
 
 SRCDIR = .
 OBJDIR = obj
 INCDIR = .
 
 # Source Files
-SRC = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_putendl_fd.c libft/ft_putnbr.c libft/ft_split.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c libft/ft_substr.c libft/ft_tolower.c libft/ft_toupper.c libft/ft_putchar_fd.c libft/ft_putchar.c libft/ft_strchr.c libft/ft_putstr_fd.c ft_printf.c 
+SRC = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_putendl_fd.c libft/ft_split.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c libft/ft_substr.c libft/ft_tolower.c libft/ft_toupper.c libft/ft_putchar_fd.c libft/ft_putchar.c libft/ft_strchr.c libft/ft_putstr_fd.c libft/ft_putnbr.c libft/ft_displayptr.c ft_printf.c 
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))
@@ -59,8 +59,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 
 # Linking Rule
 $(NAME): $(OBJ) $(LIBFT)
-	$(V)$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) $(LIBS) $(MLXFLAGS) -o $(NAME)
-	$(V)echo $(GREEN)"[$(NAME)] Executable created ✅"$(RESET)
+	$(V)$(AR) $(ARFLAGS) $@ $^
+	$(V)echo $(GREEN)"[$(NAME)] Library created ✅"$(RESET)
 
 # Libft
 $(LIBFT):
@@ -71,6 +71,7 @@ $(LIBFT):
 clean:
 	$(V)echo $(RED)'[$(NAME)] Cleaning objects'd$(RESET)
 	$(V)rm -rf $(OBJDIR)
+	$(V)$(MAKE) --silent -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(V)echo $(RED)'[$(NAME)] Cleaning all files'$(RESET)
