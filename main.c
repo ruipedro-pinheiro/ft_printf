@@ -6,7 +6,7 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:14:49 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 16:31:36 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:19:34 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(void)
 	ft_printf("ft_printf: %i %d %u\n", number, number, num);
 	printf("   printf: %i %d %u\n", number, number, num);
 	ft_printf("######################################################\n");
+	ft_printf("ft_printf:%x \n", number);
+	printf("   printf: %x \n", number);
 }
 
 /*MAJOR BUG->

@@ -6,7 +6,7 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:15:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 17:33:48 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:16:07 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	var_handler(const char *s, int size, va_list varg)
 	if (s[size + 1] == 'u')
 		ft_putnbr_unsigned(va_arg(varg, unsigned int), size);
 	if (s[size + 1] == 'x')
-		ft_putnbr_hex_x((va_arg(varg, unsigned int), size));
-	if (s[size + 1] == 'X')
-		ft_putnbr_hex_X((va_arg(varg, unsigned int), size));
+		ft_putnbr_hex_x((va_arg(varg, unsigned int)), size);
+	/*if (s[size + 1] == 'X')
+		ft_putnbr_hex_X((va_arg(varg, unsigned int), size));*/
 	return (size);
 }
 
