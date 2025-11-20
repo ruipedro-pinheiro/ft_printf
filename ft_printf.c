@@ -6,15 +6,20 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:15:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/20 13:55:46 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/21 00:33:30 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* TODO: FOUND A MAJOR BUG
-	IF THERE ARE TWO OR MORE ARGS IN PRINTF FOLLOWING EACH OTHER WITHOUT SPACE
-		IT DOESNT WORK LIKE IN PRINTF
+/*
+** Gère les conversions de format (%%,%c,%s,%p,%d,%i,%u,%x,%X)
+** @param s: chaîne de format avec '%' à l'index i
+** @param i: position actuelle sur le '%'
+** @param varg: liste d'arguments variables
+** @param count: nombre de caractères déjà imprimés
+** Fonction: Check s[i+1] pour déterminer le type et appelle va_arg()
+** pour extraire l'argument correspondant puis l'afficher
 */
 int	var_handler(const char *s, int i, va_list varg, int count)
 {
@@ -37,6 +42,14 @@ int	var_handler(const char *s, int i, va_list varg, int count)
 	return (count);
 }
 
+/*
+** Reproduction de printf avec formats variables (variadic function)
+** @param s: chaîne de format avec spécificateurs %X
+** @param ...: arguments variables correspondant aux %X
+** Fonction: Parse la chaîne, si '%' trouvé appelle var_handler(),
+** sinon affiche le caractère normalement. Retourne le nombre total
+** de caractères imprimés (comme printf original)
+*/
 int	ft_printf(const char *s, ...)
 {
 	int		count;
