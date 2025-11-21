@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_hex_x.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_hex_lowercase.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 17:38:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/19 15:53:19 by rpinheir         ###   ########.fr       */
+/*   Created: 2025/11/20 12:52:00 by rpinheir          #+#    #+#             */
+/*   Updated: 2025/11/20 12:52:00 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_hex_x(unsigned int n, int size)
+int	ft_putnbr_hex_lowercase(unsigned int n)
 {
-	char	*res;
+	char	*base;
+	int		count;
 
-	res = 0;
-	if (n == 0)
+	base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
 	{
-		return (ft_putchar('0'), size++);
+		count += ft_putnbr_hex_lowercase(n / 16);
+		count += ft_putnbr_hex_lowercase(n % 16);
 	}
 	else
 	{
-		if ((char)n > 9)
-		{
-			res = '0' + n;
-		}
-		else
-		{
-			res = '0' + n;
-			size++;
-		}
+		write(1, &base[n], 1);
+		count++;
 	}
-	write(1, &n, 1);
-	return (size);
+	return (count);
 }

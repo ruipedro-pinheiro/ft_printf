@@ -5,39 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 09:24:11 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 13:21:03 by rpinheir         ###   ########.fr       */
+/*   Created: 2025/11/20 12:54:00 by rpinheir          #+#    #+#             */
+/*   Updated: 2025/11/20 12:54:00 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_displayptr(void *ptr, int size)
+static int	ft_putptr_hex(unsigned long n)
 {
-	unsigned long	i;
-	unsigned long	addr;
-	char			buffer[sizeof(unsigned long) * 2];
-	int				d;
+	char	*base;
+	int		count;
 
-	i = 0;
-	addr = (unsigned long)ptr;
-	ft_putchar('0');
-	ft_putchar('x');
-	if (addr == 0)
+	base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
 	{
-		return (ft_putchar('0'), size++);
+		count += ft_putptr_hex(n / 16);
+		count += ft_putptr_hex(n % 16);
 	}
-	while (addr != 0)
+	else
 	{
-		d = addr & 0xF;
-		if ((char)d < 10)
-			buffer[i++] = '0' + d;
-		else
-			buffer[i++] = 'a' + (d - 10);
-		addr >>= 4;
+		write(1, &base[n], 1);
+		count++;
 	}
-	while (i-- > 0)
-		ft_putchar(buffer[i]);
-	return (size += i);
+	return (count);
+}
+
+int	ft_displayptr(void *ptr)
+{
+	int				count;
+	unsigned long	address;
+
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	address = (unsigned long)ptr;
+	count = 0;
+	write(1, "0x", 2);
+	count += 2;
+	count += ft_putptr_hex(address);
+	return (count);
 }

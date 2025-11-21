@@ -50,5 +50,12 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(int n);
+int		ft_putnbr_unsigned(unsigned int n);
+int		ft_putnbr_hex_lowercase(unsigned int n);
+int		ft_putnbr_hex_uppercase(unsigned int n);
+int		ft_displayptr(void *ptr);
 
 #endif

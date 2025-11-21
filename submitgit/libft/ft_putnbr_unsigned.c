@@ -5,27 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 17:02:17 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/18 17:07:05 by rpinheir         ###   ########.fr       */
+/*   Created: 2025/11/20 12:51:00 by rpinheir          #+#    #+#             */
+/*   Updated: 2025/11/20 12:51:00 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_unsigned(unsigned int n, int size)
+int	ft_putnbr_unsigned(unsigned int n)
 {
-	int	num;
+	char	num;
+	int		count;
 
-	num = 0;
+	count = 0;
 	if (n > 9)
 	{
-		ft_putnbr_unsigned(n / 10, size);
-		ft_putnbr_unsigned(n % 10, size);
+		count += ft_putnbr_unsigned(n / 10);
+		count += ft_putnbr_unsigned(n % 10);
 	}
 	else
 	{
 		num = n + '0';
 		write(1, &num, 1);
+		count++;
 	}
-	return (size);
+	return (count);
 }

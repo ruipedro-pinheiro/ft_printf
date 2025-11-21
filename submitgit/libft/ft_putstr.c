@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,8 +12,16 @@
 
 #include "libft.h"
 
-int	ft_putchar(char c)
+int	ft_putstr(char *s)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	int	len;
+
+	if (!s)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	len = ft_strlen(s);
+	ft_putstr_fd(s, 1);
+	return (len);
 }
