@@ -6,7 +6,7 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:15:40 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/21 00:33:30 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:19:08 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ int	var_handler(const char *s, int i, va_list varg, int count)
 {
 	if (s[i + 1] == '%')
 		count += ft_putchar('%');
-	if (s[i + 1] == 'c')
+	else if (s[i + 1] == 'c')
 		count += ft_putchar(va_arg(varg, int));
-	if (s[i + 1] == 's')
+	else if (s[i + 1] == 's')
 		count += ft_putstr(va_arg(varg, char *));
-	if (s[i + 1] == 'p')
+	else if (s[i + 1] == 'p')
 		count += ft_displayptr(va_arg(varg, void *));
-	if ((s[i + 1] == 'i') || s[i + 1] == 'd')
+	else if ((s[i + 1] == 'i') || s[i + 1] == 'd')
 		count += ft_putnbr(va_arg(varg, int));
-	if (s[i + 1] == 'u')
+	else if (s[i + 1] == 'u')
 		count += ft_putnbr_unsigned(va_arg(varg, unsigned int));
-	if (s[i + 1] == 'x')
+	else if (s[i + 1] == 'x')
 		count += ft_putnbr_hex_lowercase(va_arg(varg, unsigned int));
-	if (s[i + 1] == 'X')
+	else if (s[i + 1] == 'X')
 		count += ft_putnbr_hex_uppercase(va_arg(varg, unsigned int));
 	return (count);
 }

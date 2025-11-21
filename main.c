@@ -6,13 +6,13 @@
 /*   By: rpinheir <rpinheir@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:14:49 by rpinheir          #+#    #+#             */
-/*   Updated: 2025/11/21 01:05:00 by rpinheir         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:19:02 by rpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 #include <limits.h>
+#include <stdio.h>
 
 /*
 ** Testeur pour démonstration lors de l'évaluation
